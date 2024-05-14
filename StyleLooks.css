@@ -1,0 +1,242 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: darkgray;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#header {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+#logo img {
+    width: 150px; /* Adjust the size of the logo*/
+}
+
+#navbar {
+    text-align: center;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul li {
+    display: inline;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 10px 20px;
+}
+
+#navbar ul li a:hover {
+    color: #ccc;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+section {
+    padding: 40px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#hero-section {
+    background-image: url('images/Money-Heist.webp'); /* Replace 'money_heist_cover.jpg' with actual image path*/
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#hero-text {
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movie-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.movie {
+    width: calc(33.33% - 20px); /* Adjust the width of each movie card*/
+    background-color: lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    color: black;
+}
+
+.movie:hover {
+    transform: translateY(-5px);
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+.movie-details {
+    padding: 20px;
+}
+
+.movie-details h3 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+}
+
+.movie-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+@media screen and (max-width: 768px) {
+    .movie {
+        width: calc(50% - 20px); /* Adjust the width of each movie card for smaller screens*/
+    }
+
+    #navbar {
+        text-align: center;
+    }
+
+    #navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #navbar ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    #navbar ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    #navbar ul li a:hover {
+        color: #ccc;
+    }
+}
+
+#search-bar {
+    position: absolute; /* Make the search bar absolute and position it within the header */
+    top: 50%;
+    transform: translateY(-50%);  /* Center the search bar vertically */
+    right: 250px;  /* Position it 20px from the right edge */
+    display: inline-block;
+}
+
+#search-bar input[type="text"] {
+    padding: 8px 150px; /* Adjust padding for the input field */
+    border: none;
+    border-radius: 20px;
+    margin-right: 5px;
+    width: 500px;
+}
+
+#search-bar button {
+    padding: 8px 35px; /* Adjust padding for the button */
+    background-color: lightgray;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#search-bar button:hover {
+    background-color: #45a049;
+}
+
+.carousel {
+    display: flex; /* Use flexbox */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable snapping to carousel items */
+    padding-bottom: 20px; /* Add bottom padding for item descriptions */
+    color: black;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    margin-right: 20px;
+    border: 2px solid transparent; /* Set initial border */
+    border-radius: 10px; /* Add border radius for a smoother look */
+    background-color: darkgray; /* Set background color to white */
+    transition: border-color 0.3s ease, transform 0.3s ease; /* Add transition for smooth hover effect */
+    width: 200px;
+    height: auto;
+}
+
+/* Adjust the width of carousel items */
+.carousel-item img {
+    width: 200px; /* Adjust the width of each image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add border-radius for smooth corners */
+    object-fit: cover; /* Ensure the image fills the container smoothly */
+}
+
+/* Add hover effect and border for carousel items */
+.carousel-item:hover {
+    border: 2px solid snow; /* Add border on hover */
+    transform: translateY(-5px); /* Add a slight lift on hover */
+}
+
+/* Add padding and font color for carousel item descriptions */
+.carousel-item p {
+    padding: 10px; /* Add padding to the descriptions */
+    color: #555; /* Set font color */
+}
+
+.carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+}
