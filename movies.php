@@ -31,6 +31,33 @@ session_start();
 </head>
 
 <body class="bg-light">
+<header id="header">
+        <div class="container">
+            <div id="logo">
+                <img src="images/logoPicture.jpg" alt="The Big 6 Movies & Series Logo">
+            </div>
+            <div id="search-bar">
+                <label>
+                    <!-- <input type="text" placeholder="Search..."> -->
+                </label>
+                <button type="submit">Search</button>
+            </div>
+            <!-- Navbar -->
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tv-shows">TV Shows</a></li>
+                    <li><a href="movies.php">Movies</a></li>
+                    <li><a href="tvseries.php">Series</a></li>
+                    <li><a href="#new-popular">New & Popular</a></li>
+                    <li><a href="#my-favorites">My Favorites</a></li>
+                    <li><a href="#recommended">Recommended</a></li>
+                    <!--<li><a href="#profile">Profile</a></li>-->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
     <div class="container my-4">
         <div class="row">
             <div class="col-12 mb-3">
@@ -122,6 +149,7 @@ session_start();
                             <p class="card-text">Genre: <?= $bedrooms ?></p>
                             <button class="btn btn-primary" onclick='viewDetails()'>Watch Movie</button>
                             <button class="btn btn-secondary" onclick="addToFavorites(<?= $rethabile['movieID'] ?>)">Add to Favorites</button>
+                            <button class="btn btn-primary" onclick="recommend(<?= $rethabile['movieID'] ?>)">recommend</button>
                         </div>
                     </div>
                 </div>
