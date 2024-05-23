@@ -120,7 +120,7 @@ session_start();
                             <p class="card-text">Ratings: <?= $price ?></p>
                             <p class="card-text">Plot: <?= $bathrooms ?></p>
                             <p class="card-text">Genre: <?= $bedrooms ?></p>
-                            <button class="btn btn-primary" onclick='viewDetails()'>View More</button>
+                            <button class="btn btn-primary" onclick='viewDetails()'>Watch Movie</button>
                             <button class="btn btn-secondary" onclick="addToFavorites(<?= $rethabile['movieID'] ?>)">Add to Favorites</button>
                         </div>
                     </div>
