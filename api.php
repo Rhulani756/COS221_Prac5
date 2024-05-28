@@ -23,6 +23,8 @@ class UserRegistrationAPI
         return self::$instance;
     }
 
+    
+
     public function registerUser($postData)
     {
         $timestamp = time();
@@ -38,7 +40,7 @@ class UserRegistrationAPI
         if ($this->emailExists($postData['email'])) {
             return ['status' => 'error', 'message' => 'Email address already exists'];
         }
-
+         
         // Generate salt
 
 
@@ -78,6 +80,32 @@ class UserRegistrationAPI
 
         // Close database connection
 
+    }public function addActor($postData){
+        global $servername , $username , $password , $dbname ;
+        $conn = new  mysqli($servername, $username, $password);
+        $timestamp = time();
+        $requiredField = ['nconst', 'primaryName','birthYear','deathYear','primaryProfession','knownForTitles'];
+        foreach($requiredField as $field){
+            if(!isset($postData[$field])){
+                echo ['status' => 'error', 'timestamp' => $timestamp, 'data' => 'Post parameter' + $field + 'is missing'];
+            }
+        }
+        
+        $stmt = $conn->prepare(" INSERT INTO actors ( nconst , primaryNaame, birthYear, deathYear, primaryProfession, knownForTitles) VALUES (??????)");
+        $stmt->bind_param("ssddss", "nm0000001","Jongisapho", "2000","3000","scientist","boom");
+
+        if ($stmt->affected_rows > 0) {
+            // Registration successful
+
+            echo [
+                'status' => 'success',
+                'timestamp' => $timestamp
+            ];
+        } else {
+            // Registration failed
+            echo ['status' => 'error', 'message' => 'Failed to register user'];
+        }
+        /// new add Actor in progress just tired now 
     }
 
     private function emailExists($email)
