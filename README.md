@@ -9,6 +9,8 @@ Recommend the movies based on algorithms.
 Be able to share favourites.
 Users are able to review a movie or series.
 
+The database was populated by using a pythong script which fetched data from the IMDB public api and inserts it into the database. This was done in order to accomodate for images. The script also accomodates other aspects by generating artificial data.
+
 
 Jay : 
 -  my database name extent is named u22625926_hoopR
