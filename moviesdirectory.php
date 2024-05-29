@@ -74,13 +74,9 @@ session_start();
             <!-- Navbar -->
             <nav id="navbar">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#tv-shows">TV Shows</a></li>
-                    <li><a href="movies.php">Movies</a></li>
+                    <li><a href="indexAdmin.php">Home</a></li>
+                    <li><a href="moviesdirectory.php">Movies</a></li>
                     <li><a href="tvseries.php">Series</a></li>
-                    <li><a href="#new-popular">New & Popular</a></li>
-                    <li><a href="#my-favorites">My Favorites</a></li>
-                    <li><a href="#recommended">Recommended</a></li>
                     <!--<li><a href="#profile">Profile</a></li>-->
                 </ul>
             </nav>
@@ -98,8 +94,12 @@ session_start();
             </div>
         </div>
     </form>
-
     <div class="container my-4">
+        <div class="row mb-4">
+            <div class="col text-right">
+                <a href="addmovie.php" class="btn btn-primary">Add Movie</a>
+            </div>
+        </div>
         <div class="row">
             <?php
             // Construct the SQL query with sorting and filtering conditions
