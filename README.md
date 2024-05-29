@@ -7,6 +7,7 @@ Be able to add a movie to favourites ( create a favourites page).
 Be able to sort and filter listings.
 Recommend the movies based on algorithms.
 Be able to share favourites.
+Users are able to review a movie or series.
 
 
 Jay : 
