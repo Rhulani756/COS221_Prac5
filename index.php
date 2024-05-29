@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOOP Movies & Series</title>
-    <link rel="stylesheet" href="StyleLooks.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="StyleLooks2.css"> <!-- Link to the CSS file -->
 </head>
 <body>
 <header id="header">
