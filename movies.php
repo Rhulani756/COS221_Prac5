@@ -57,7 +57,6 @@ session_start();
             </nav>
         </div>
     </header>
-
     <div class="container my-4">
         <div class="row">
             <div class="col-12 mb-3">
@@ -99,6 +98,7 @@ session_start();
         <div class="row">
             <?php
             // Construct the SQL query with sorting and filtering conditions
+
             $sql = "SELECT * FROM movies WHERE 1=1";
 
             // Check if search query is submitted

@@ -79,26 +79,19 @@ class API
         }
 
         // Close database connection
-
-    }public function addActor($postData = null) {
-        global $servername, $username, $password, $dbname;
-        $conn = new mysqli($servername, $username, $password, $dbname);
-    
-        // Check connection
-        if ($conn->connect_error) {
+    }
+    public function addActor($postData){
+        global $servername , $username , $password , $dbname ;
+        $conn = new  mysqli($servername, $username, $password);
+         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-    
         $timestamp = time();
-        $sql = "INSERT INTO actors (nconst, primaryName, birthYear, deathYear, primaryProfession, knownForTitles) VALUES (?, ?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-    
-        // Check if statement was prepared successfully
+        $stmt = $conn->prepare(" INSERT INTO actors ( nconst , primaryNaame, birthYear, deathYear, primaryProfession, knownForTitles) VALUES (??????)");
+        $stmt->bind_param("ssddss", "nm0000001","Jongisapho", "2000","3000","scientist","boom");
         if ($stmt === false) {
             die("Prepare failed: " . $conn->error);
         }
-    
-        // Bind parameters
         $nconst = "nm0000001";
         $primaryName = "Jongisapho";
         $birthYear = 2000;
@@ -282,7 +275,6 @@ class API
         }
     }
 }
-
 $api = API::getInstance();
 // $postData = json_decode(file_get_contents('php://input'), true);
 // if ($postData != null) {
@@ -307,3 +299,27 @@ $api = API::getInstance();
 
 //     header('Location: index.php');
 //}
+$api = UserRegistrationAPI::getInstance();
+$postData = json_decode(file_get_contents('php://input'), true);
+if ($postData != null) {
+    if ($postData['type'] == 'GetAllListings') {
+        $response = $api->getAllListingsUsers($postData);
+        echo json_encode($response);
+    } else {
+        echo json_encode($response);
+        $response = $api->registerUser($postData);
+    }
+} else {
+    $returner2 = $_SESSION['returner2'];
+    if ($returner2 != null) {
+        $data = json_decode($returner2, true);
+        if ($data['type'] == 'Register') {
+
+            $response = $api->registerUser($data);
+        } else {
+            $response = $api->login($returner2);
+        }
+    }
+
+    header('Location: index.php');
+}
