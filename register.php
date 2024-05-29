@@ -61,6 +61,40 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,38 +102,69 @@ if (isset($_POST["submit"])) {
         <img src="img/images.png" alt="My Logo" class="logo">
         <h1>HOUSE PROPERTY DEVELOPMENT</h1>
     </div>
-    <form action="register.php" id="retha" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" name="username"><br>
-        <label for="fname">First Name:</label><br>
-        <input type="text" name="fname"><br>
-        <label for="lname">Last Name:</label><br>
-        <input type="text" name="lname"><br>
-        <label for="email">Email:</label><br>
-        <input type="email" name="email"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" name="password"><br>
-        <label for="isAdmin">Admin (True/False):</label><br>
-        <input type="hidden" name="isAdmin" value="0"> <!-- Hidden field to ensure a value is always sent -->
-        <input type="checkbox" name="isAdmin" value="1"><br>
-        <label for="city">City:</label><br>
-        <input type="text" name="city"><br>
-        <label for="state">State:</label><br>
-        <input type="text" name="state"><br>
-        <label for="postalCode">Postal Code:</label><br>
-        <input type="text" name="postalCode"><br>
-        <label for="dateOfBirth">Date of Birth:</label><br>
-        <input type="date" name="dateOfBirth"><br>
-        <label for="gender">Gender:</label><br>
-        <input type="text" name="gender"><br>
-        <label for="country">Country:</label><br>
-        <input type="text" name="country"><br>
-        <label for="age">Age:</label><br>
-        <input type="number" name="age"><br>
-       
-        <input type="submit" name="submit" value="Register">
-        <input type="submit" name="submit" value="Login" onclick="redirectToIndex()">
-    </form>
+    <div class="form-container">
+        <form action="register.php" id="retha" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" name="fname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" name="lname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <div class="form-group form-check">
+                <input type="hidden" name="isAdmin" value="0">
+                <input type="checkbox" name="isAdmin" value="1" class="form-check-input">
+                <label for="isAdmin" class="form-check-label">Admin (True/False)</label>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" name="city" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" name="state" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="postalCode">Postal Code:</label>
+                <input type="text" name="postalCode" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" name="dateOfBirth" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" name="gender" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" name="country" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" name="age" class="form-control">
+            </div>
+            <button type="submit" name="submit" value="Register" class="btn btn-primary">Register</button>
+            <button type="button" name="submit" value="Login" class="btn btn-secondary" onclick="redirectToIndex()">Login</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         function redirectToIndex() {
             window.location.href = "login.php";
@@ -108,3 +173,4 @@ if (isset($_POST["submit"])) {
 </body>
 
 </html>
+
