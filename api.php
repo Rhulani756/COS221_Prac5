@@ -3,7 +3,7 @@ session_start();
 header('Content-Type: application/json');
 include 'config.php';
 
-class UserRegistrationAPI
+class API
 {
 
     private static $instance;
@@ -80,25 +80,48 @@ class UserRegistrationAPI
 
         // Close database connection
 
-    }public function addActor($postData){
-        $timestamp = time();
-        $requiredField = ['nconst', 'primaryName','birthYear','deathYear','primaryProfession','knownForTitles'];
-        foreach($requiredField as $field){
-            if(!isset($postData[$field])){
-                return ['status' => 'error', 'timestamp' => $timestamp, 'data' => 'Post parameter' + $field + 'is missing'];
-            }
+    }public function addActor($postData = null) {
+        global $servername, $username, $password, $dbname;
+        $conn = new mysqli($servername, $username, $password, $dbname);
+    
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-
-        
-        -
-        $stmt = $conn->prepare "INSERT INTO actors ( &nconst', 'primaryName','birthYear','deathYear','primaryProfession','knownForTitles'
-
-
-
-        global $servername , $username , $password , $dbname ;
-        $conn = new  mysqli($servername, $username, $password);
-
-        /// new add Actor in progress just tired now 
+    
+        $timestamp = time();
+        $sql = "INSERT INTO actors (nconst, primaryName, birthYear, deathYear, primaryProfession, knownForTitles) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+    
+        // Check if statement was prepared successfully
+        if ($stmt === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+    
+        // Bind parameters
+        $nconst = "nm0000001";
+        $primaryName = "Jongisapho";
+        $birthYear = 2000;
+        $deathYear = 3000;
+        $primaryProfession = "scientist";
+        $knownForTitles = "boom";
+    
+        // Using correct types: s for string, i for integer
+        $stmt->bind_param("ssiiis", $nconst, $primaryName, $birthYear, $deathYear, $primaryProfession, $knownForTitles);
+    
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo json_encode([
+                'status' => 'success',
+                'timestamp' => $timestamp
+            ]);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Failed to register user: ' . $stmt->error]);
+        }
+    
+        // Close statement and connection
+        $stmt->close();
+        $conn->close();
     }
 
     private function emailExists($email)
@@ -260,27 +283,27 @@ class UserRegistrationAPI
     }
 }
 
-$api = UserRegistrationAPI::getInstance();
-$postData = json_decode(file_get_contents('php://input'), true);
-if ($postData != null) {
-    if ($postData['type'] == 'GetAllListings') {
-        $response = $api->getAllListingsUsers($postData);
-        echo json_encode($response);
-    } else {
-        echo json_encode($response);
-        $response = $api->registerUser($postData);
-    }
-} else {
-    $returner2 = $_SESSION['returner2'];
-    if ($returner2 != null) {
-        $data = json_decode($returner2, true);
-        if ($data['type'] == 'Register') {
+$api = API::getInstance();
+// $postData = json_decode(file_get_contents('php://input'), true);
+// if ($postData != null) {
+//     if ($postData['type'] == 'GetAllListings') {
+//         $response = $api->getAllListingsUsers($postData);
+//         echo json_encode($response);
+//     } else {
+//         echo json_encode($response);
+//         $response = $api->registerUser($postData);
+//     }
+// } else {
+//     $returner2 = $_SESSION['returner2'];
+//     if ($returner2 != null) {
+//         $data = json_decode($returner2, true);
+//         if ($data['type'] == 'Register') {
 
-            $response = $api->registerUser($data);
-        } else {
-            $response = $api->login($returner2);
-        }
-    }
+//             $response = $api->registerUser($data);
+//         } else {
+//             $response = $api->login($returner2);
+//         }
+//     }
 
-    header('Location: index.php');
-}
+//     header('Location: index.php');
+//}
