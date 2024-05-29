@@ -80,33 +80,42 @@ class UserRegistrationAPI
 
         // Close database connection
 
-    }public function addActor($postData){
+    }
+    public function addActor($postData){
         global $servername , $username , $password , $dbname ;
         $conn = new  mysqli($servername, $username, $password);
-        $timestamp = time();
-        $requiredField = ['nconst', 'primaryName','birthYear','deathYear','primaryProfession','knownForTitles'];
-        foreach($requiredField as $field){
-            if(!isset($postData[$field])){
-                echo ['status' => 'error', 'timestamp' => $timestamp, 'data' => 'Post parameter' + $field + 'is missing'];
-            }
+         if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-        
+        $timestamp = time();
         $stmt = $conn->prepare(" INSERT INTO actors ( nconst , primaryNaame, birthYear, deathYear, primaryProfession, knownForTitles) VALUES (??????)");
         $stmt->bind_param("ssddss", "nm0000001","Jongisapho", "2000","3000","scientist","boom");
-
-        if ($stmt->affected_rows > 0) {
-            // Registration successful
-
-            echo [
+        if ($stmt === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+        $nconst = "nm0000001";
+        $primaryName = "Jongisapho";
+        $birthYear = 2000;
+        $deathYear = 3000;
+        $primaryProfession = "scientist";
+        $knownForTitles = "boom";
+    
+        // Using correct types: s for string, i for integer
+        $stmt->bind_param("ssiiis", $nconst, $primaryName, $birthYear, $deathYear, $primaryProfession, $knownForTitles);
+    
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo json_encode([
                 'status' => 'success',
                 'timestamp' => $timestamp
-            ];
+            ]);
         } else {
-            // Registration failed
-            echo ['status' => 'error', 'message' => 'Failed to register user'];
+            echo json_encode(['status' => 'error', 'message' => 'Failed to register user: ' . $stmt->error]);
         }
-        /// new add Actor in progress just tired now 
-    }
+    
+        // Close statement and connection
+        $stmt->close();
+        $conn->close();
 
     private function emailExists($email)
     {
