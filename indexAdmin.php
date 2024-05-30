@@ -20,13 +20,16 @@
         </div>
         <nav id="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="indexAdmin.php">Admin</a></li>
                 <li><a href="#tv-shows">TV Shows</a></li>
                 <li><a href="movies.php">Movies</a></li>
                 <li><a href="tvseries.php">Series</a></li>
-                <li><a href="#new-popular">Admin</a></li>
+                <li><a href="#new-popular">New & Popular</a></li>
                 <li><a href="#my-favorites">My Favorites</a></li>
                 <li><a href="#recommended">Recommended</a></li>
+                <li><a href="#login.php">Login</a></li>
+                <li><a href="#loginout.php">Logout</a></li>
                 <!--<li><a href="#profile">Profile</a></li>--> <!-- Add a link to the profile page -->
             </ul>
         </nav>
