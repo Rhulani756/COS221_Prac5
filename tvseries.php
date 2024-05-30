@@ -9,26 +9,7 @@ session_start();
     <title>View</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="StyleLooks2.css">
-    <style>
-        .alb {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .alb img {
-            width: 100%;
-            height: auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-    </style>
+    
 </head>
 
 <body class="bg-light">
