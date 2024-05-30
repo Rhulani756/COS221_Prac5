@@ -8,6 +8,22 @@
     
 </head>
 <body>
+    <head>
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="indexAdmin.php">Admin</a></li>
+                <li><a href="#tv-shows">TV Shows</a></li>
+                <li><a href="movies.php">Movies</a></li>
+                <li><a href="tvseries.php">Series</a></li>
+                <li><a href="#new-popular">New & Popular</a></li>
+                <li><a href="#my-favorites">My Favorites</a></li>
+                <li><a href="#recommended">Recommended</a></li>
+                <li><a href="loginout.php">Logout</a></li>
+                <li><a href="Register.php">Register</a></li>
+            </ul>
+        </nav>
+    </head>
     <div class="header">
         <img src="img/images.png" alt="My Logo" class="logo">
         <h1>Hoop</h1>
