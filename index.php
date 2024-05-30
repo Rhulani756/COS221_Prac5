@@ -20,13 +20,16 @@
         </div>
         <nav id="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="indexAdmin.php">Admin</a></li>
                 <li><a href="#tv-shows">TV Shows</a></li>
                 <li><a href="movies.php">Movies</a></li>
                 <li><a href="tvseries.php">Series</a></li>
                 <li><a href="#new-popular">New & Popular</a></li>
                 <li><a href="#my-favorites">My Favorites</a></li>
                 <li><a href="#recommended">Recommended</a></li>
+                <li><a href="#login.php">Login</a></li>
+                <li><a href="#loginout.php">Logout</a></li>
                 <!--<li><a href="#profile">Profile</a></li>--> <!-- Add a link to the profile page -->
             </ul>
         </nav>
@@ -147,7 +150,9 @@
 </section>
 
 <section id="movies">
-    <h2>Movies</h2>
+    <h2>
+        <a href = "movies.php" id="movies-button">Movies</a>
+    </h2>
     <div class="carousel">
         <div class="carousel-item">
             <img src="images/Bad Boys.jpg" alt="This is Bad Boys">
@@ -186,7 +191,9 @@
 </section>
 
 <section id="series">
-    <h2>Series</h2>
+    <h2>
+        <a href = "tvseries.php" id="tvseries-button">TV Series</a>
+    </h2>
     <div class="carousel">
         <div class="carousel-item">
             <img src="images/Suits.jpg" alt="This is Suits">
