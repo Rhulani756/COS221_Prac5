@@ -28,8 +28,8 @@
                 <li><a href="#new-popular">New & Popular</a></li>
                 <li><a href="#my-favorites">My Favorites</a></li>
                 <li><a href="#recommended">Recommended</a></li>
-                <li><a href="#login.php">Login</a></li>
-                <li><a href="#loginout.php">Logout</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="loginout.php">Logout</a></li>
                 <!--<li><a href="#profile">Profile</a></li>--> <!-- Add a link to the profile page -->
             </ul>
         </nav>
